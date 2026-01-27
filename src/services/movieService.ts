@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { FetchMoviesResponse } from '../types/movie'; // Проверь название здесь
+import type { FetchMoviesResponse } from '../types/movie'; 
 
 const API_KEY = import.meta.env.VITE_TMDB_TOKEN;
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';

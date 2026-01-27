@@ -53,7 +53,7 @@ const App = () => {
           <MovieGrid movies={movies} onSelect={setSelectedMovie} />
           {totalPages > 1 && (
             <ReactPaginate
-              pageCount={Math.min(totalPages, 500)} // TMDB ограничивает 500 страницами
+              pageCount={Math.min(totalPages, 500)} 
               pageRangeDisplayed={5}
               marginPagesDisplayed={1}
               onPageChange={({ selected }) => setPage(selected + 1)}
