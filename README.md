@@ -1,73 +1,38 @@
-# React + TypeScript + Vite
+# React Movies Search — TanStack Query & Pagination 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is an advanced version of the Movie Search application, refactored to use **TanStack Query** for state management and **React Paginate** for seamless navigation through movie collections.
 
-Currently, two official plugins are available:
+## 📋 Project Updates & Features
+- **TanStack Query Integration**: Completely refactored data fetching logic. No more manual `useState` and `useEffect` for API calls.
+- **Server State Management**: Automatic caching, background updates, and built-in handling of loading and error states.
+- **Advanced Pagination**: Implemented `page`-based fetching using TMDB API.
+- **Enhanced UI**: Integrated `react-paginate` for intuitive navigation through multiple result pages.
+- **Persistent Search**: Synchronized pagination state with search queries.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Technical Highlights:
 
-## React Compiler
+### 1. TanStack Query (React Query)
+- **Query Client Setup**: Configured at the root level in `main.tsx`.
+- **`useQuery` Hook**: Utilized for fetching data, where the `queryKey` includes both the search term and the current page number to ensure unique caching.
+- **Optimized Fetching**: Automatic re-fetching and data synchronization without manual intervention.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 2. Pagination Logic
+- **`total_pages` Awareness**: The application now respects the total number of pages provided by the TMDB API.
+- **Dynamic Controls**: The pagination bar only appears when `total_pages > 1`.
+- **Zero-indexed Handling**: Seamless conversion between React Paginate's 0-based indexing and TMDB's 1-based page system.
 
-## Expanding the ESLint configuration
+### 3. TypeScript & Clean Code
+- **Response Typing**: Updated interfaces to include `total_pages` and `total_results`.
+- **Strict Prop Typing**: All components, including the new pagination integration, are strictly typed with TypeScript interfaces.
+- **Prettier & Modules**: Maintained high code standards with CSS Modules and Prettier formatting.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠 Tech Stack:
+- **Framework**: React 18 (Vite)
+- **Data Fetching**: TanStack Query (React Query), Axios
+- **Pagination**: React Paginate
+- **Notifications**: React Hot Toast
+- **Language**: TypeScript
+- **Deployment**: Vercel
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🔗 Live Demo:
+[Link to your Vercel deployment here]
